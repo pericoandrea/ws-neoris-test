@@ -11,6 +11,7 @@ import { CustomersService } from '../application/customers.service';
 import { CreateCustomerDto } from '../domain/dto/create-customer.dto';
 import { UpdateCustomerDto } from '../domain/dto/update-customer.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { CustomerIdDto } from '../domain/dto/customer-id.dto';
 
 @ApiTags('customers')
 @Controller('customers')
@@ -28,20 +29,20 @@ export class CustomersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.customersService.findOne(id);
+  findOne(@Param() customerId: CustomerIdDto) {
+    return this.customersService.findOne(customerId.id);
   }
 
   @Put(':id')
   update(
-    @Param('id') id: string,
+    @Param() customerId: CustomerIdDto,
     @Body() updateCustomerDto: UpdateCustomerDto,
   ) {
-    return this.customersService.update(id, updateCustomerDto);
+    return this.customersService.update(customerId.id, updateCustomerDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.customersService.remove(id);
+  remove(@Param() customerId: CustomerIdDto) {
+    return this.customersService.remove(customerId.id);
   }
 }

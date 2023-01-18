@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { CreateCustomerDto } from '../domain/dto/create-customer.dto';
 import { UpdateCustomerDto } from '../domain/dto/update-customer.dto';
 import {
@@ -20,15 +20,31 @@ export class CustomersService {
     return this.customerRepository.findAll();
   }
 
-  findOne(id: string) {
-    return this.customerRepository.findOne(id);
+  async findOne(id: string) {
+    const customerFound = await this.customerRepository.findOne(id);
+
+    if (!customerFound) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return customerFound;
   }
 
-  update(id: string, updateCustomerDto: UpdateCustomerDto) {
-    return this.customerRepository.update(id, updateCustomerDto);
+  async update(id: string, updateCustomerDto: UpdateCustomerDto) {
+    const customerUpdated = await this.customerRepository.update(
+      id,
+      updateCustomerDto,
+    );
+    if (!customerUpdated) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return { message: 'Customer Updated' };
   }
 
-  remove(id: string) {
-    return this.customerRepository.remove(id);
+  async remove(id: string) {
+    const wasDeleted = await this.customerRepository.remove(id);
+    if (!wasDeleted) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return { message: 'Customer Deleted' };
   }
 }
