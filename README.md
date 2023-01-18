@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+[Deployment](https://ws-neoris-test.herokuapp.com) Deployment API url
+
+[Heroku repo](https://git.heroku.com/ws-neoris-test.git)
+
 ## Installation
 
 ```bash

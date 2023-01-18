@@ -2,9 +2,12 @@
   "name": "ws-neoris-test",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Maria Andrea Perico",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
