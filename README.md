@@ -2,7 +2,7 @@
 
 ## Description
 
-Webservice for an API's customer resource write with  <a href="https://docs.nestjs.com/" target="_blank">NestJS</a> a progressive <a href="http://nodejs.org" target="_blank">Node.js</a>.
+Webservice for an API's customer resource write with  <a href="https://docs.nestjs.com/" target="_blank">NestJS</a> that is a progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework.
 
 The API retrieve, update and delete any customer as shows the diagram.
 
