@@ -4,7 +4,9 @@
 
 Webservice for an API's customer resource write with  <a href="https://docs.nestjs.com/" target="_blank">NestJS</a> a progressive <a href="http://nodejs.org" target="_blank">Node.js</a>.
 
-The API retrieve, update and delete any customer.
+The API retrieve, update and delete any customer as shows the diagram.
+
+<img src="./customerDiagram.jpg" width="320" alt="Customer Diagram" />
 
 ---
 
